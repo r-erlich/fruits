@@ -7,15 +7,18 @@
   </head>
   <body>
     <h1>Edit <%= fruit.name %></h1>
-    <form action="/fruits" method="POST">
+    <a href="/fruits/">Back to Fruits</a>
+    <form action="/fruits/<%=fruit._id%>?_method=PUT" method="POST">
       <label for="name">Name:</label>
-      <input type="text" name="name" id="name" />
+      <input type="text" name="name" id="name" value="<%= fruit.name %>" />
 
       <label for="isReadyToEat">Ready to Eat?</label>
-      <input type="checkbox" name="isReadyToEat" id="isReadyToEat" />
-
+      <input
+        type="checkbox"
+        name="isReadyToEat"
+        id="isReadyToEat"
+        <% if(fruit.isReadyToEat){ %>checked<% } %> />
       <button type="submit">Update Fruit</button>
     </form>
-    <a href="/fruits">Back to Fruits</a>
   </body>
 </html>
